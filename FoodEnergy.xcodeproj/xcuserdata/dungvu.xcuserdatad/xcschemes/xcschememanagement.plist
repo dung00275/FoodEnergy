@@ -4,6 +4,11 @@
 <dict>
 	<key>SchemeUserState</key>
 	<dict>
+		<key>CommonCrypto.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>1</integer>
+		</dict>
 		<key>FoodEnergy.xcscheme</key>
 		<dict>
 			<key>orderHint</key>
@@ -23,6 +28,11 @@
 			<true/>
 		</dict>
 		<key>CF416C661D41F77A00CE7E59</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CF416C8E1D42095500CE7E59</key>
 		<dict>
 			<key>primary</key>
 			<true/>
