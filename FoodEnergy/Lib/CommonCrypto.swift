@@ -44,13 +44,14 @@ extension String {
     func hmac(_ algorithm: CryptoAlgorithm, key: String) -> String {
         let cKey = key.cString(using: String.Encoding.utf8)
         let cData = self.cString(using: String.Encoding.utf8)
-        var result = [CUnsignedChar](repeating: 0, count: Int(algorithm.digestLength))
+        var result = [CUnsignedChar](repeating: 0,
+                                     count: Int(algorithm.digestLength))
         CCHmac(algorithm.HMACAlgorithm, cKey!, Int(strlen(cKey!)), cData!, Int(strlen(cData!)), &result)
         let hmacData:NSData = NSData(bytes: result, length: algorithm.digestLength)
         
         
-        let hmacBase64 = hmacData.base64EncodedString(options: .endLineWithLineFeed)
-        print(hmacBase64.characters.count)
+        let hmacBase64 = hmacData.base64EncodedString(options: [])
+     
         return hmacBase64
         
 //        let str = self.cString(using: String.Encoding.utf8)

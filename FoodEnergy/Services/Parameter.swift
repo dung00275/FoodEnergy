@@ -100,8 +100,8 @@ public struct Parameter {
         for key in keys {
             baseString += "&" + key + "=" + "\(params[key]!)"
         }
-        let key = "\(API.accessKey)&\(API.sharedSecret)"
-        let signature: String = baseString.hmac(.SHA1, key: key).RFC3986()
+//        let key = "\(API.sharedSecret)"
+        let signature: String = baseString.hmac(.SHA1, key: API.sharedSecret).addingPercentEncoding(withAllowedCharacters: CharacterSet.urlQueryAllowed)!
         
         return signature
     }
@@ -109,7 +109,7 @@ public struct Parameter {
 
 extension String {
     func RFC3986() -> String {
-        return self.replacingOccurrences(of: "=", with: "").replacingOccurrences(of: "/", with: "")
+        return self.replacingOccurrences(of: "_", with: "/").replacingOccurrences(of: "-", with: "+")
     }
     
     
